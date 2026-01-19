@@ -1,6 +1,3 @@
-# Copyright (C) 2024 by THE-VIP-BOY-OP@Github, <https://github.com/THE-VIP-BOY-OP>.
-# This file is part of <https://github.com/THE-VIP-BOY-OP/VIP-MUSIC> project.
-
 import asyncio
 import os
 import re
@@ -14,7 +11,7 @@ from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
 import config 
-from VIPMUSIC.utils.formatters import time_to_seconds
+from LolMusic.utils.formatters import time_to_seconds
 
 # --- SMART API ROTATION LOGIC (ONLY API, NO COOKIES) ---
 API_KEYS = [k.strip() for k in config.API_KEY.split(",")]
