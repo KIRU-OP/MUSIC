@@ -30,9 +30,12 @@ BOT_USERNAME = getenv("BOT_USERNAME", "cuteanubot")
 BOT_NAME = getenv("BOT_NAME", "ANUPRIYAMUSIC")
 ASSUSERNAME = getenv("ASSUSERNAME", "Oyekanhaa")
 
-# -------------------- [ DATABASE / HEROKU / REPO ] --------------------
+# -------------------- [ DATABASE / HEROKU / REPO / API ] --------------------
 
 MONGO_DB_URI = getenv("MONGO_DB_URI", None)
+
+# Sirf wahi keys list mein jayengi jo empty nahi hain
+YOUTUBE_API_KEYS = [k.strip() for k in ["AIzaSyCFv5iwf9_CZKYcifMFK43zMZ78NH5GwE8, AIzaSyBlbkp4_XbjOZAMG6mr_QMmurBW9tcpu0s, AIzaSyCHRfOCjo77bI3HYRvwIjxIke2TuFT_vh8"] if k and k.strip()]
 
 HEROKU_APP_NAME = getenv("HEROKU_APP_NAME")
 HEROKU_API_KEY = getenv("HEROKU_API_KEY")
