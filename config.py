@@ -23,8 +23,8 @@ BOT_TOKEN = getenv("BOT_TOKEN")
 
 # -------------------- [ OWNER & BOT INFO ] --------------------
 
-OWNER_ID = int(getenv("OWNER_ID", 7682307978))
-OWNER_USERNAME = getenv("OWNER_USERNAME", "oyekanha")
+OWNER_ID = int(getenv("OWNER_ID", "8520496440"))
+OWNER_USERNAME = getenv("OWNER_USERNAME", "god_hyper_op")
 
 BOT_USERNAME = getenv("BOT_USERNAME", "cuteanubot")
 BOT_NAME = getenv("BOT_NAME", "ANUPRIYAMUSIC")
@@ -37,7 +37,7 @@ MONGO_DB_URI = getenv("MONGO_DB_URI", None)
 HEROKU_APP_NAME = getenv("HEROKU_APP_NAME")
 HEROKU_API_KEY = getenv("HEROKU_API_KEY")
 
-UPSTREAM_REPO = getenv("UPSTREAM_REPO", "https://github.com/MaanavEgo/kanha.git")
+UPSTREAM_REPO = getenv("UPSTREAM_REPO", "https://github.com/HYPER-OP-92/MUSIC")
 UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "main")
 
 GIT_TOKEN = getenv("GIT_TOKEN", "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P")
@@ -46,9 +46,9 @@ GIT_TOKEN = getenv("GIT_TOKEN", "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P")
 
 LOGGER_ID = int(getenv("LOGGER_ID", -1002141133985))
 
-PRIVACY_LINK = getenv("PRIVACY_LINK", "https://telegra.ph/Privacy-Policy-for-YukkiMusic-08-30")
-SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/about_maanav")
-SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/maanavXera")
+PRIVACY_LINK = getenv("PRIVACY_LINK", "https://telegra.ph/BOTS--PRIVACY-POLICY-01-19")
+SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/about_deadly_venom")
+SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/NOBITA_SUPPORT")
 
 # -------------------- [ LIMITS & TIME SETTINGS ] --------------------
 
