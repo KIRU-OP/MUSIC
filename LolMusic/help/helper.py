@@ -57,7 +57,7 @@ class Helper(object):
 ᴜsᴀɢᴇ :- ʙᴏᴛ ᴜsᴇʀɴᴀᴍᴇ | ɪᴅ/ᴜsᴇʀɴᴀᴍᴇ | ᴛᴇxᴛ```
 
 
-**» єx :-** `@maanavXmuzicbot @maanavbots I love You 😘`
+**» єx :-** `@KIRU_OP @lingtech_dev I love You 😘`
 
 
  
@@ -338,24 +338,24 @@ class Helper(object):
 '''
     HELP_ABOUT = '''
 **─────────────────────
- ᴡєʟᴄσϻє ᴛσ ˹[ᴍᴀᴀɴᴀᴠ sᴜᴘᴘᴏʀᴛ](https://t.me/maanavXera)˼ sᴛᴧᴛυs
+ ᴡєʟᴄσϻє ᴛσ ˹[ᴍᴀᴀɴᴀᴠ sᴜᴘᴘᴏʀᴛ](https://t.me/NEO_MUSIC_ROBOT)˼ sᴛᴧᴛυs
 ──────────────────────
    ❖ │ ʀєᴧʟ ᴛɪϻє ʙσᴛ's sᴛᴧᴛυs │❖
 ──────────────────────
-╭⎋ [𝐌𝐀𝐀𝐍𝐀𝐕 𝐗 𝐌𝐔𝐒𝐈𝐂](https://t.me/maanavXmuzicbot) : ᴧʟɪᴠє 
+╭⎋ [sʜʏᴀᴍ ᴍᴜsɪᴄ](https://t.me/SHYAMVIBEBOT) : ᴧʟɪᴠє 
 ╰⊚ υsᴧɢє : 24 ʜʀs | ᴧssɪsᴛᴧηᴛs : 01
        
-╭⎋ [𝐀𝐍𝐈𝐊𝐀𝐀 𝐗 𝐌𝐔𝐒𝐈𝐂](https://t.me/anikaaXmuzicbot) : ᴧʟɪᴠє 
+╭⎋ [ʀᴀᴅʜᴀ ᴍᴜsɪᴄ](https://t.me/RADHAVIBEBOT) : ᴧʟɪᴠє 
 ╰⊚ υsᴧɢє : 24 ʜʀs | ᴧssɪsᴛᴧηᴛs : 01
 
-╭⎋ [𝐀𝐍𝐔𝐏𝐑𝐈𝐘𝐀 𝐗 𝐌𝐔𝐒𝐈𝐂](https://t.me/cuteanubot) : ᴧʟɪᴠє 
+╭⎋ [ɴɪᴋᴋᴜ ᴍᴜsɪᴄ](https://t.me/NEO_MUSIC_ROBOT) : ᴧʟɪᴠє 
 ╰⊚ υsᴧɢє : 24 ʜʀs | ᴧssɪsᴛᴧηᴛs : 01
 ──────────────────────
-⊚ ʙσᴛ sᴛᴧᴛυs & ϻσʀє ʙσᴛs - [ᴄʟɪᴄᴋ ʜєʀє](https://t.me/Maanavbots)
+⊚ ʙσᴛ sᴛᴧᴛυs & ϻσʀє ʙσᴛs - [ᴄʟɪᴄᴋ ʜєʀє](https://t.me/about_deadly_venom)
 ──────────────────────
 ⊚ ʟᴧsᴛ ᴄʜєᴄᴋєᴅ ση  : `01.09.2025`
 ──────────────────────
-❍ 𝐏ᴏᴡєʀєᴅ 𝖡ʏ » [𝐌 Λ Λ 𝐍 Λ 𝐕](http://t.me/maanavXera)
+❍ 𝐏ᴏᴡєʀєᴅ 𝖡ʏ » [~ 𝐀𝐁𝐎𝐔𝐓 𝐌𝐄 !!](https://t.me/RADHA_KRISHNA_26)
 ──────────────────────**
 '''
     HELP_ALLBOT = '''
@@ -371,12 +371,12 @@ class Helper(object):
 ● ηᴏ ʟᴀɢ ɪssᴜєs ηᴏ ᴧᴅs ηᴏ ʙᴜɢs.
 ● sᴜᴘᴘᴏʀᴛ ᴧʟʟ ᴛɪϻє sᴛᴧʏ ᴡɪᴛʜ ᴜs.
 ──────────────────────
-❖ υᴘᴅᴧᴛєs ᴄʜᴧηηєʟ » [ᴍᴀᴀɴᴀᴠ-ʙσᴛs](https://t.me/maanavbots)
-❖ sυᴘᴘσʀᴛ ᴄʜᴧᴛ » [ᴍᴀᴀɴᴀᴠ-ᴜᴘᴅᴧᴛєs](https://t.me/maanavXera)
-❖ ɢɪᴛ ʜᴜʙ ʟɪηᴋ » [тєᴧϻ-ᴍᴀᴀɴᴀᴠ](github.com/Oyekanhaa)
+❖ υᴘᴅᴧᴛєs ᴄʜᴧηηєʟ » [ʙσᴛs](https://t.me/about_deadly_venom)
+❖ sυᴘᴘσʀᴛ ᴄʜᴧᴛ » [ᴜᴘᴅᴧᴛєs](https://t.me/about_deadly_venom)
+❖ ɢɪᴛ ʜᴜʙ ʟɪηᴋ » [ᴍᴀᴀɴᴀᴠ](github.com/Oyekanhaa)
 ──────────────────────
-➤ ʙσᴛ sᴛᴧᴛυs & ϻσʀє ʙσᴛs - [ᴄʟɪᴄᴋ ʜєʀє](https://t.me/maanavbots)
-➤ ᴘᴧɪᴅ ᴘʀσϻσᴛɪση :- [ᴄσηᴛᴧᴄᴛ ʜєʀє](https://t.me/maanavbots)
+➤ ʙσᴛ sᴛᴧᴛυs & ϻσʀє ʙσᴛs - [ᴄʟɪᴄᴋ ʜєʀє](https://t.me/about_deadly_venom)
+➤ ᴘᴧɪᴅ ᴘʀσϻσᴛɪση :- [ᴄσηᴛᴧᴄᴛ ʜєʀє](https://t.me/about_deadly_venom)
 ──────────────────────**
 
 '''
