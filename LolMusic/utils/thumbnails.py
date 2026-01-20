@@ -10,8 +10,8 @@ from config import YOUTUBE_IMG_URL
 def resize_image(image, width, height):
     return image.resize((width, height), Image.LANCZOS)
 
-# Function to generate thumbnail
-async def gen_thumb(videoid):
+# Function name renamed to get_thumb to fix ImportError
+async def get_thumb(videoid):
     cache_path = f"cache/{videoid}.png"
     temp_path = f"cache/thumb{videoid}.png"
     
@@ -46,8 +46,8 @@ async def gen_thumb(videoid):
         youtube = Image.open(temp_path).convert("RGBA")
         
         # --- LIGHT BLUE THEME COLORS ---
-        GLOW_COLOR = "#00BFFF"   # Deep Sky Blue (Glow ke liye)
-        BORDER_COLOR = "#87CEEB" # Sky Blue (Border aur text ke liye)
+        GLOW_COLOR = "#00BFFF"   # Light Blue Glow
+        BORDER_COLOR = "#87CEEB" # Sky Blue Border
         # -------------------------------
 
         # Background
@@ -68,7 +68,7 @@ async def gen_thumb(videoid):
         thumb_x = center_x - (thumb_width // 2)
         thumb_y = center_y - (thumb_height // 2)
 
-        # Glow Layer (Light Blue)
+        # Glow
         glow_layer = Image.new("RGBA", (1280, 720), (0, 0, 0, 0))
         draw_glow = ImageDraw.Draw(glow_layer)
         draw_glow.rounded_rectangle(
@@ -78,7 +78,7 @@ async def gen_thumb(videoid):
         glow_layer = glow_layer.filter(ImageFilter.GaussianBlur(20))
         bg.paste(glow_layer, (0, 0), glow_layer)
 
-        # Border Layer (Light Blue)
+        # Border
         border_layer = Image.new("RGBA", (1280, 720), (0, 0, 0, 0))
         draw_border = ImageDraw.Draw(border_layer)
         draw_border.rounded_rectangle(
@@ -100,7 +100,7 @@ async def gen_thumb(videoid):
         if len(title) > 40:
             title = title[:37] + "..."
 
-        # Draw Title and Stats (Using Light Blue for stats)
+        # Draw Title and Stats
         draw.text((320, 580), title, fill="white", font=font_title)
         stats_text = f"Views: {views} | Duration: {duration}"
         draw.text((320, 640), stats_text, fill=BORDER_COLOR, font=font_details)
@@ -115,7 +115,7 @@ async def gen_thumb(videoid):
         print(f"Error: {e}")
         return YOUTUBE_IMG_URL
 
-# Function to get quick thumbnail URL
+# Optional: keep this if needed by other files
 async def get_qthumb(vidid):
     try:
         url = f"https://www.youtube.com/watch?v={vidid}"
