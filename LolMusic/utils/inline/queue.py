@@ -1,6 +1,5 @@
 # ======================================================
 # ©️ 2025-26 All Rights Reserved by Revange 😎
-
 # 🧑‍💻 Developer : t.me/dmcatelegram
 # 🔗 Source link : https://github.com/hexamusic/LolMusic
 # 📢 Telegram channel : t.me/dmcatelegram
@@ -76,17 +75,17 @@ def aq_markup(_, chat_id):
     buttons = [
         [
             InlineKeyboardButton(
-                text="• ᴊᴏɪη ησᴡ •",
-                url=f"https://t.me/maanavbots"
+                text="✨ ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ ✨",
+                url="https://t.me/dmcatelegram"
             ),
             InlineKeyboardButton(
-                text="• ɢʀσᴜᴘ ᴄʜᴧᴛ •",
-                url="https://t.me/maanavbots"
+                text="💬 sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ 💬",
+                url="https://t.me/dmcatelegram"
             ),
         ],
         [
             InlineKeyboardButton(
-                text="✙ ʌᴅᴅ ϻє ɪη ʏσυʀ ɢʀσυᴘ ✙",
+                text="✙ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ✙",
                 url=f"https://t.me/{app.username}?startgroup=true"
             )
         ],
@@ -95,8 +94,6 @@ def aq_markup(_, chat_id):
 
 # ======================================================
 # ©️ 2025-26 All Rights Reserved by Revange 😎
-
 # 🧑‍💻 Developer : t.me/dmcatelegram
-# 🔗 Source link : https://github.com/hexamusic/LolMusic
 # 📢 Telegram channel : t.me/dmcatelegram
 # =======================================================
