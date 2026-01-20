@@ -91,8 +91,8 @@ async def get_thumb(videoid):
         draw = ImageDraw.Draw(bg)
         
         try:
-            font_title = ImageFont.truetype("BIGFM/assets/font.ttf", 45)
-            font_details = ImageFont.truetype("BIGFM/assets/font2.ttf", 30)
+            font_title = ImageFont.truetype("LolMusic/assets/font.ttf", 45)
+            font_details = ImageFont.truetype("LolMusic/assets/font2.ttf", 30)
         except:
             font_title = ImageFont.load_default()
             font_details = ImageFont.load_default()
