@@ -75,11 +75,11 @@ def aq_markup(_, chat_id):
     buttons = [
         [
             InlineKeyboardButton(
-                text="✨ ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ ✨",
+                text="ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ",
                 url="https://t.me/about_deadly_venom"
             ),
             InlineKeyboardButton(
-                text="💬 sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ 💬",
+                text="sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ",
                 url="https://t.me/NOBITA_SUPPORT"
             ),
         ],
