@@ -1,15 +1,8 @@
-# =======================================================
-# ©️ 2025-26 All Rights Reserved by REVANGE Bots (suraj08832) 🚀
-# This source code is under MIT License 📜 Unauthorized forking, importing, or using this code without giving proper credit will result in legal action ⚠️
-# 📩 DM for permission : @brahix
-# =======================================================
-
+# ©️ 2025-26 All Rights Reserved by REVANGE Bots
 from pyrogram import Client, errors
-from pyrogram.enums import ChatMemberStatus, ParseMode
-
+from pyrogram.enums import ChatMemberStatus
 import config
 from ..logging import LOGGER
-
 
 class Sona(Client):
     def __init__(self):
@@ -30,6 +23,11 @@ class Sona(Client):
         self.username = self.me.username
         self.mention = self.me.mention
 
+        # Logger ID Check
+        if config.LOGGER_ID == 0 or config.LOGGER_ID == -100:
+            LOGGER(__name__).error("LOGGER_ID set nahi hai! Please config file check karein.")
+            exit()
+
         try:
             await self.send_message(
                 chat_id=config.LOGGER_ID,
@@ -40,32 +38,27 @@ class Sona(Client):
                     f"ᴜsᴇʀɴᴀᴍᴇ :- @{self.username}"
                 ),
             )
-        except (errors.ChannelInvalid, errors.PeerIdInvalid):
-            LOGGER(__name__).error(
-                "ʙᴏᴛ ʜᴀs ғᴀɪʟᴇᴅ ᴛᴏ ᴀᴄᴄᴇss ᴛʜᴇ ʟᴏɢ ɢʀᴏᴜᴘ/ᴄʜᴀɴɴᴇʟ. ᴍᴀᴋᴇ sᴜʀᴇ ʙᴏᴛ ɪs ᴀᴅᴅᴇᴅ ᴛʜᴇʀᴇ."
-            )
+        except errors.ChannelInvalid:
+            LOGGER(__name__).error("Bot ko Log Group mein add nahi kiya gaya hai ya ID galat hai.")
+            exit()
+        except errors.PeerIdInvalid:
+            LOGGER(__name__).error("LOGGER_ID ka format galat hai. Check karein.")
             exit()
         except Exception as ex:
-            LOGGER(__name__).error(
-                f"ʙᴏᴛ ʜᴀs ғᴀɪʟᴇᴅ ᴛᴏ ᴀᴄᴄᴇss ᴛʜᴇ ʟᴏɢ ɢʀᴏᴜᴘ/ᴄʜᴀɴɴᴇʟ.\n  ʀᴇᴀsᴏɴ :- {type(ex).__name__}."
-            )
+            LOGGER(__name__).error(f"Unexpected Error: {ex}")
             exit()
 
-        a = await self.get_chat_member(config.LOGGER_ID, self.id)
-        if a.status != ChatMemberStatus.ADMINISTRATOR:
-            LOGGER(__name__).error(
-                "ᴘʟᴇᴀsᴇ ᴘʀᴏᴍᴏᴛᴇ ʏᴏᴜʀ ʙᴏᴛ ᴀs ᴀɴ ᴀᴅᴍɪɴ ɪɴ ʏᴏᴜʀ ʟᴏɢ ɢʀᴏᴜᴘ/ᴄʜᴀɴɴᴇʟ."
-            )
+        # Admin Check
+        try:
+            a = await self.get_chat_member(config.LOGGER_ID, self.id)
+            if a.status != ChatMemberStatus.ADMINISTRATOR:
+                LOGGER(__name__).error("Bot Log Group mein Admin nahi hai! Pehle admin banayein.")
+                exit()
+        except Exception:
+            LOGGER(__name__).error("Bot ko Log Group mein message bhejne ki permission nahi hai.")
             exit()
 
         LOGGER(__name__).info(f"ᴍᴜsɪᴄ ʙᴏᴛ sᴛᴀʀᴛᴇᴅ ᴀs {self.name}")
 
     async def stop(self):
         await super().stop()
-
-# ======================================================
-# ©️ 2025-26 All Rights Reserved by REVANGE Bots (suraj08832) 😎
-# 🧑‍💻 Developer : t.me/brahix
-# 🔗 Source link : GitHub.com/suraj08832/Sonali-MusicV2
-# 📢 Telegram channel : t.me/KRITI_SUPPORT_GROUP
-# =======================================================
