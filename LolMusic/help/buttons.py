@@ -9,15 +9,15 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from LolMusic import app
 
 class BUTTONS(object):
-    # Help Menu Buttons (Tools & Management)
+    # BBUTTON: Compact style with 3 buttons per row + Emojis
     BBUTTON = [
         [
             InlineKeyboardButton("⚡ ᴀᴄᴛɪᴏɴ", callback_data="TOOL_BACK HELP_06"),
-            InlineKeyboardButton("🛡️ ᴀɴᴛɪ-ғʟᴏᴏᴅ", callback_data="TOOL_BACK HELP_11"),
-            InlineKeyboardButton("✅ ᴀᴘᴘʀᴏᴠᴀʟ", callback_data="TOOL_BACK HELP_12"),
+            InlineKeyboardButton("🛡️ ғʟᴏᴏᴅ", callback_data="TOOL_BACK HELP_11"),
+            InlineKeyboardButton("✅ ᴀᴘᴘʀᴏᴠᴇ", callback_data="TOOL_BACK HELP_12"),
         ],
         [
-            InlineKeyboardButton("🤖 ᴄʜᴀᴛ-ɢᴘᴛ", callback_data="TOOL_BACK HELP_01"),
+            InlineKeyboardButton("🤖 ɢᴘᴛ", callback_data="TOOL_BACK HELP_01"),
             InlineKeyboardButton("📂 ɢɪᴛʜᴜʙ", callback_data="TOOL_BACK HELP_09"),
             InlineKeyboardButton("👥 ɢʀᴏᴜᴘ", callback_data="TOOL_BACK HELP_07"),
         ],
@@ -32,15 +32,13 @@ class BUTTONS(object):
             InlineKeyboardButton("🛠️ ᴛᴏᴏʟs", callback_data="TOOL_BACK HELP_10"),
         ],
         [
-            InlineKeyboardButton("🎙️ ᴠᴄ-ᴛᴏᴏʟs", callback_data="TOOL_BACK HELP_14"),
+            InlineKeyboardButton("🎙️ ᴠᴄ-ᴛᴏᴏʟ", callback_data="TOOL_BACK HELP_14"),
             InlineKeyboardButton("🤫 ᴡʜɪsᴘᴇʀ", callback_data="TOOL_BACK HELP_02"),
-        ],
-        [
             InlineKeyboardButton("🔙 ʙᴀᴄᴋ", callback_data="MAIN_CP"),
         ]
     ]
     
-    # Contact / Support Buttons
+    # PBUTTON: Contact info
     PBUTTON = [
         [
             InlineKeyboardButton("📩 ᴄᴏɴᴛᴀᴄᴛ", url="https://t.me/dmcatelegram"),
@@ -48,23 +46,23 @@ class BUTTONS(object):
         ]
     ]
     
-    # About / Info Buttons
+    # ABUTTON: Support & Privacy
     ABUTTON = [
         [
             InlineKeyboardButton("🆘 sᴜᴘᴘᴏʀᴛ", url="https://t.me/dmcatelegram"),
             InlineKeyboardButton("📢 ᴜᴘᴅᴀᴛᴇs", url="https://t.me/dmcatelegram"),
+            InlineKeyboardButton("🔐 ᴘʀɪᴠᴀᴄʏ", url="https://telegra.ph/Privacy-Policy--REVANG-08-06"),
         ],
         [  
-            InlineKeyboardButton("🔐 ᴘʀɪᴠᴀᴄʏ ᴘᴏʟɪᴄʏ", url="https://telegra.ph/Privacy-Policy--REVANG-08-06"),
-            InlineKeyboardButton("🔙 ʙᴀᴄᴋ", callback_data="settingsback_helper"),
+            InlineKeyboardButton("🔙 ʙᴀᴄᴋ ᴛᴏ sᴇᴛᴛɪɴɢs", callback_data="settingsback_helper"),
         ]
     ]
     
-    # Settings / Main Menu Buttons
+    # SBUTTON: Main Settings
     SBUTTON = [
         [
             InlineKeyboardButton("🎵 ᴍᴜsɪᴄ", callback_data="settings_back_helper"),
-            InlineKeyboardButton("⚙️ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ", callback_data="TOOL_CP"),
+            InlineKeyboardButton("⚙️ ᴍᴀɴᴀɢᴇ", callback_data="TOOL_CP"),
         ],
         [
             InlineKeyboardButton("🏠 ʙᴀᴄᴋ ᴛᴏ ʜᴏᴍᴇ", callback_data="settingsback_helper"),
@@ -72,5 +70,5 @@ class BUTTONS(object):
     ]
 
 # ======================================================
-# Updated with ❤️ by Revange
+# UI Refined by Revange 😎
 # ======================================================
