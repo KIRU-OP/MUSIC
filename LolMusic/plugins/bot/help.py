@@ -1,13 +1,12 @@
 # ======================================================
 # ©️ 2025-26 All Rights Reserved by Revange 😎
-
 # 🧑‍💻 Developer : t.me/dmcatelegram
 # 🔗 Source link : https://github.com/hexamusic/LolMusic
 # 📢 Telegram channel : t.me/dmcatelegram
 # =======================================================
 
 from typing import Union
-from pyrogram import filters, types
+from pyrogram import filters, types, enums
 from pyrogram.types import InlineKeyboardMarkup, Message, InlineKeyboardButton
 from LolMusic import app
 from LolMusic.utils import help_pannel
@@ -19,51 +18,41 @@ from strings import get_string, helpers
 from LolMusic.help.buttons import BUTTONS
 from LolMusic.help.helper import Helper
 
-
 #------------------------------------------------------------------------------------------------------------------------
-# MUSIC | MUSIC | MUSIC | MUSIC | MUSIC | MUSIC | MUSIC | MUSIC | MUSIC | MUSIC | MUSIC | MUSIC | MUSIC | MUSIC | MUSIC | 
+# MUSIC SECTION | 🎵
 #------------------------------------------------------------------------------------------------------------------------
-
-
 
 @app.on_message(filters.command(["help"]) & filters.private & ~BANNED_USERS)
 @app.on_callback_query(filters.regex("settings_back_helper") & ~BANNED_USERS)
-async def helper_private(
-    client: app, update: Union[types.Message, types.CallbackQuery]
-):
+async def helper_private(client: app, update: Union[types.Message, types.CallbackQuery]):
     is_callback = isinstance(update, types.CallbackQuery)
     if is_callback:
-        try:
-            await update.answer()
-        except:
-            pass
+        try: await update.answer()
+        except: pass
         chat_id = update.message.chat.id
         language = await get_lang(chat_id)
         _ = get_string(language)
         keyboard = help_pannel(_, True)
         await update.edit_message_text(
-            _["help_1"].format(SUPPORT_CHAT), reply_markup=keyboard
+            f"✨ **{_['help_1'].format(SUPPORT_CHAT)}**", reply_markup=keyboard
         )
     else:
-        try:
-            await update.delete()
-        except:
-            pass
+        try: await update.delete()
+        except: pass
         language = await get_lang(update.chat.id)
         _ = get_string(language)
         keyboard = help_pannel(_)
         await update.reply_photo(
             photo=START_IMG_URL,
-            caption=_["help_1"].format(SUPPORT_CHAT),
+            caption=f"🎵 **{_['help_1'].format(SUPPORT_CHAT)}**",
             reply_markup=keyboard,
         )
-
 
 @app.on_message(filters.command(["help"]) & filters.group & ~BANNED_USERS)
 @LanguageStart
 async def help_com_group(client, message: Message, _):
     keyboard = private_help_panel(_)
-    await message.reply_text(_["help_2"], reply_markup=InlineKeyboardMarkup(keyboard))
+    await message.reply_text(f"📑 **{_['help_2']}**", reply_markup=InlineKeyboardMarkup(keyboard))
 
 @app.on_callback_query(filters.regex("help_callback") & ~BANNED_USERS)
 @languageCB
@@ -71,212 +60,104 @@ async def helper_cb(client, CallbackQuery, _):
     callback_data = CallbackQuery.data.strip()
     cb = callback_data.split(None, 1)[1]
     keyboard = help_back_markup(_)
-    if cb == "hb1":
-        await CallbackQuery.edit_message_text(helpers.HELP_1, reply_markup=keyboard)
-    elif cb == "hb2":
-        await CallbackQuery.edit_message_text(helpers.HELP_2, reply_markup=keyboard)
-    elif cb == "hb3":
-        await CallbackQuery.edit_message_text(helpers.HELP_3, reply_markup=keyboard)
-    elif cb == "hb4":
-        await CallbackQuery.edit_message_text(helpers.HELP_4, reply_markup=keyboard)
-    elif cb == "hb5":
-        await CallbackQuery.edit_message_text(helpers.HELP_5, reply_markup=keyboard)
-    elif cb == "hb6":
-        await CallbackQuery.edit_message_text(helpers.HELP_6, reply_markup=keyboard)
-    elif cb == "hb7":
-        await CallbackQuery.edit_message_text(helpers.HELP_7, reply_markup=keyboard)
-    elif cb == "hb8":
-        await CallbackQuery.edit_message_text(helpers.HELP_8, reply_markup=keyboard)
-    elif cb == "hb9":
-        await CallbackQuery.edit_message_text(helpers.HELP_9, reply_markup=keyboard)
-    elif cb == "hb10":
-        await CallbackQuery.edit_message_text(helpers.HELP_10, reply_markup=keyboard)
-    elif cb == "hb11":
-        await CallbackQuery.edit_message_text(helpers.HELP_11, reply_markup=keyboard)
-    elif cb == "hb12":
-        await CallbackQuery.edit_message_text(helpers.HELP_12, reply_markup=keyboard)
-    elif cb == "hb13":
-        await CallbackQuery.edit_message_text(helpers.HELP_13, reply_markup=keyboard)
-    elif cb == "hb14":
-        await CallbackQuery.edit_message_text(helpers.HELP_14, reply_markup=keyboard)
-    elif cb == "hb15":
-        await CallbackQuery.edit_message_text(helpers.HELP_15, reply_markup=keyboard)
-
-
-
-
+    # Adding premium prefix to help texts
+    help_text = getattr(helpers, f"HELP_{cb[2:]}")
+    await CallbackQuery.edit_message_text(f"💎 **ᴍᴜsɪᴄ ʜᴇʟᴘ** 💎\n\n{help_text}", reply_markup=keyboard)
 
 #------------------------------------------------------------------------------------------------------------------------
-# MANAGEMENT | MANAGEMENT | MANAGEMENT | MANAGEMENT | MANAGEMENT | MANAGEMENT | MANAGEMENT | MANAGEMENT | MANAGEMENT | 
+# MANAGEMENT SECTION | 🛡️
 #------------------------------------------------------------------------------------------------------------------------
-
-
-
-
 
 @app.on_callback_query(filters.regex("MANAGEMENT_CP") & ~BANNED_USERS)
 async def helper_cb(client, CallbackQuery):
-    await CallbackQuery.edit_message_text(Helper.HELP_M, reply_markup=InlineKeyboardMarkup(BUTTONS.MBUTTON))
+    await CallbackQuery.edit_message_text(f"🛡️ **{Helper.HELP_M}**", reply_markup=InlineKeyboardMarkup(BUTTONS.MBUTTON))
     
-        
 @app.on_callback_query(filters.regex('MANAGEMENT_BACK'))      
 async def mb_plugin_button(client, CallbackQuery):
     callback_data = CallbackQuery.data.strip()
     cb = callback_data.split(None, 1)[1]
-    keyboard = InlineKeyboardMarkup(
-    [
-    [
-    InlineKeyboardButton("⌯ ʙᴧᴄᴋ ⌯", callback_data=f"MANAGEMENT_CP")
-    ]
-    ]
-    )
+    keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 ʙᴀᴄᴋ", callback_data="MANAGEMENT_CP")]])
     if cb == "MANAGEMENT":
-        await CallbackQuery.edit_message_text(f"`something errors`",reply_markup=keyboard,parse_mode=enums.ParseMode.MARKDOWN)
+        await CallbackQuery.edit_message_text("❌ `Something went wrong!`", reply_markup=keyboard, parse_mode=enums.ParseMode.MARKDOWN)
     else:
-        await CallbackQuery.edit_message_text(getattr(Helper, cb), reply_markup=keyboard)
-
-
-
-
+        await CallbackQuery.edit_message_text(f"⚙️ {getattr(Helper, cb)}", reply_markup=keyboard)
 
 #------------------------------------------------------------------------------------------------------------------------
-# TOOL | TOOL | TOOL | TOOL | TOOL | TOOL | TOOL | TOOL | TOOL | TOOL | TOOL | TOOL | TOOL | TOOL | TOOL | TOOL | TOOL |
+# TOOL SECTION | ⚡
 #------------------------------------------------------------------------------------------------------------------------
-
-
-
-
 
 @app.on_callback_query(filters.regex("TOOL_CP") & ~BANNED_USERS)
 async def helper_cb(client, CallbackQuery):
-    await CallbackQuery.edit_message_text(Helper.HELP_B, reply_markup=InlineKeyboardMarkup(BUTTONS.BBUTTON))
-
+    await CallbackQuery.edit_message_text(f"⚡ **{Helper.HELP_B}**", reply_markup=InlineKeyboardMarkup(BUTTONS.BBUTTON))
 
 @app.on_callback_query(filters.regex('TOOL_BACK'))      
 async def mb_plugin_button(client, CallbackQuery):
     callback_data = CallbackQuery.data.strip()
     cb = callback_data.split(None, 1)[1]
-    keyboard = InlineKeyboardMarkup(
-    [
-    [
-    InlineKeyboardButton("⌯ ʙᴧᴄᴋ ⌯", callback_data=f"TOOL_CP")
-    ]
-    ]
-    )
+    keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 ʙᴀᴄᴋ", callback_data="TOOL_CP")]])
     if cb == "TOOL":
-        await CallbackQuery.edit_message_text(f"`something errors`",reply_markup=keyboard,parse_mode=enums.ParseMode.MARKDOWN)
+        await CallbackQuery.edit_message_text("❌ `Something went wrong!`", reply_markup=keyboard, parse_mode=enums.ParseMode.MARKDOWN)
     else:
-        await CallbackQuery.edit_message_text(getattr(Helper, cb), reply_markup=keyboard)
-
-
-
-
-
+        await CallbackQuery.edit_message_text(f"🛠️ {getattr(Helper, cb)}", reply_markup=keyboard)
 
 #------------------------------------------------------------------------------------------------------------------------
-# MAIN HELP | MAIN HELP | MAIN HELP | MAIN HELP | MAIN HELP | MAIN HELP | MAIN HELP | MAIN HELP | MAIN HELP | MAIN HELP |
+# MAIN HELP | 🌀
 #------------------------------------------------------------------------------------------------------------------------
-
-
-
-
 
 @app.on_callback_query(filters.regex("MAIN_CP") & ~BANNED_USERS)
 async def helper_cb(client, CallbackQuery):
-    await CallbackQuery.edit_message_text(Helper.HELP_Sona, reply_markup=InlineKeyboardMarkup(BUTTONS.SBUTTON))
+    await CallbackQuery.edit_message_text(f"✨ **{Helper.HELP_Sona}**", reply_markup=InlineKeyboardMarkup(BUTTONS.SBUTTON))
 
-        
 @app.on_callback_query(filters.regex('MAIN_BACK'))
 async def mb_plugin_button(client, CallbackQuery):
     callback_data = CallbackQuery.data.strip()
     cb = callback_data.split(None, 1)[1] if len(callback_data.split(None, 1)) > 1 else "MAIN"
-
     keyboard = InlineKeyboardMarkup([
-        [    
-            InlineKeyboardButton("⌯ ʙᴧᴄᴋ ⌯", callback_data="MAIN_CP"),
-            InlineKeyboardButton("˹ ᴘʀɪᴠᴧᴄʏ ˼", url="https://telegra.ph/BOTS--PRIVACY-POLICY-01-19")
-        ]
+        [InlineKeyboardButton("🔙 ʙᴀᴄᴋ", callback_data="MAIN_CP"), 
+         InlineKeyboardButton("🔐 ᴘʀɪᴠᴀᴄʏ", url="https://telegra.ph/BOTS--PRIVACY-POLICY-01-19")]
     ])
-
     if cb == "MAIN":
-        await CallbackQuery.edit_message_text(
-            "`something errors`", 
-            reply_markup=keyboard,
-            parse_mode=enums.ParseMode.MARKDOWN
-        )
+        await CallbackQuery.edit_message_text("❌ `Something went wrong!`", reply_markup=keyboard, parse_mode=enums.ParseMode.MARKDOWN)
     else:
-        await CallbackQuery.edit_message_text(
-            getattr(Helper, cb), 
-            reply_markup=keyboard
-        )
-
-
+        await CallbackQuery.edit_message_text(f"💠 {getattr(Helper, cb)}", reply_markup=keyboard)
 
 #------------------------------------------------------------------------------------------------------------------------
-# PROMOTION | PROMOTION | PROMOTION | PROMOTION | PROMOTION | PROMOTION | PROMOTION | PROMOTION | PROMOTION | PROMOTION |
+# PROMOTION | 🚀
 #------------------------------------------------------------------------------------------------------------------------
+
 @app.on_callback_query(filters.regex("PROMOTION_CP") & ~BANNED_USERS)
 async def helper_cb(client, CallbackQuery):
-    await CallbackQuery.edit_message_text(Helper.HELP_PROMOTION, reply_markup=InlineKeyboardMarkup(BUTTONS.PBUTTON))
+    await CallbackQuery.edit_message_text(f"🚀 **{Helper.HELP_PROMOTION}**", reply_markup=InlineKeyboardMarkup(BUTTONS.PBUTTON))
 
-        
 @app.on_callback_query(filters.regex('PROMOTION_BACK'))      
 async def mb_plugin_button(client, CallbackQuery):
     callback_data = CallbackQuery.data.strip()
     cb = callback_data.split(None, 1)[1]
-    keyboard = InlineKeyboardMarkup(
-    [
-    [
-    InlineKeyboardButton("ʙᴀᴄᴋ", callback_data=f"PROMOTION_CP")
-    ]
-    ]
-    )
+    keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 ʙᴀᴄᴋ", callback_data="PROMOTION_CP")]])
     if cb == "PROMOTION":
-        await CallbackQuery.edit_message_text(f"`something errors`",reply_markup=keyboard,parse_mode=enums.ParseMode.MARKDOWN)
+        await CallbackQuery.edit_message_text("❌ `Something went wrong!`", reply_markup=keyboard, parse_mode=enums.ParseMode.MARKDOWN)
     else:
-        await CallbackQuery.edit_message_text(getattr(Helper, cb), reply_markup=keyboard)
-
-        
-        
+        await CallbackQuery.edit_message_text(f"📢 {getattr(Helper, cb)}", reply_markup=keyboard)
 
 #------------------------------------------------------------------------------------------------------------------------
-# ALL BOT'S | ALL BOT'S | ALL BOT'S | ALL BOT'S | ALL BOT'S | ALL BOT'S | ALL BOT'S | ALL BOT'S | ALL BOT'S | ALL BOT'S | 
+# ABOUT / PRIVACY | 🌟
 #------------------------------------------------------------------------------------------------------------------------
-
-
 
 @app.on_callback_query(filters.regex("ALLBOT_CP") & ~BANNED_USERS)
 async def helper_cb(client, CallbackQuery):
-    text = Helper.HELP_ALLBOT.format(app.mention)
-    await CallbackQuery.edit_message_text(
-        text,
-        reply_markup=InlineKeyboardMarkup(BUTTONS.ABUTTON)
-    )
+    text = f"🌟 **ᴀʙᴏᴜᴛ {app.mention}**\n\n{Helper.HELP_ALLBOT}"
+    await CallbackQuery.edit_message_text(text, reply_markup=InlineKeyboardMarkup(BUTTONS.ABUTTON))
         
 @app.on_callback_query(filters.regex('ALLBOT_BACK'))      
 async def mb_plugin_button(client, CallbackQuery):
     callback_data = CallbackQuery.data.strip()
     cb = callback_data.split(None, 1)[1]
-    keyboard = InlineKeyboardMarkup(
-    [
-    [
-    InlineKeyboardButton("ʙᴀᴄᴋ", callback_data=f"ALLBOT_CP")
-    ]
-    ]
-    )
+    keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 ʙᴀᴄᴋ", callback_data="ALLBOT_CP")]])
     if cb == "ALLBOT":
-        await CallbackQuery.edit_message_text(f"`something errors`",reply_markup=keyboard,parse_mode=enums.ParseMode.MARKDOWN)
+        await CallbackQuery.edit_message_text("❌ `Something went wrong!`", reply_markup=keyboard, parse_mode=enums.ParseMode.MARKDOWN)
     else:
-        await CallbackQuery.edit_message_text(getattr(Helper, cb), reply_markup=keyboard)
-        
-#------------------------------------------------------------------------------------------------------------------------
-#------------------------------------------------------------------------------------------------------------------------
-#------------------------------------------------------------------------------------------------------------------------
+        await CallbackQuery.edit_message_text(f"ℹ️ {getattr(Helper, cb)}", reply_markup=keyboard)
 
 # ======================================================
-# ©️ 2025-26 All Rights Reserved by Revange 😎
-
-# 🧑‍💻 Developer : t.me/dmcatelegram
-# 🔗 Source link : https://github.com/hexamusic/LolMusic
-# 📢 Telegram channel : t.me/dmcatelegram
-# =======================================================
+# Premium UI Updated by Revange 😎
+# ======================================================
